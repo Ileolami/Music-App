@@ -17,7 +17,7 @@ const MusicPlayer = () => {
     // an array of objects containing the song details
     const songs = [
         {
-            artist: "Kizz Daniel ft Davide",
+            artist: "Kizz Daniel ft Davido",
             title: "TweTwe Remix",
             audio: SongOne,
             image: TweTwe,
