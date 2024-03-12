@@ -1,4 +1,5 @@
 const SearchBar = () => {
+    
     return (  
         <div className="">
             <input 

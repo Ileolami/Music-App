@@ -105,12 +105,15 @@ const MusicPlayer = () => {
                     <img src={songs[currentSong].image} alt={songs[currentSong].title} className={`lg:h-96 lg:w-96 rounded-full ${isPlaying ? 'animate-spin-slow' : ''}`} />
                 </div>
                 <div className="text-center my-3">
-                    <h2 className="text-xl font-bold">{songs[currentSong].title}</h2>
-                    <p className="text-sm text-gray-400">{songs[currentSong].artist}</p>
-                    <p className="text-sm text-gray-400">{formatDuration(duration - currentTime)}</p>
+                    <h2 className={`text-xl font-bold text-pink-900 ${isPlaying ? 'animate-bounce' : ''}` }>{songs[currentSong].title}</h2>
+                    <p className="text-sm text-rose-900">{songs[currentSong].artist}</p>
                 </div>
                 <div>
                     <input type="range" className="w-full" value={currentTime} onChange={handleSeek} max={audioRef.current ? audioRef.current.duration : 0} />
+                    <div className="flex justify-between">
+                    <p className="text-sm flex justify-start text-gray-400">{formatDuration(currentTime)}</p>
+                    <p className="text-sm flex justify-end text-gray-400">{formatDuration(duration - currentTime)}</p>
+                    </div>
                 </div>
                 <audio ref={audioRef} src={songs[currentSong].audio} onTimeUpdate={handleTimeUpdate}></audio>
                 <div className="flex justify-center gap-10 my-3">
