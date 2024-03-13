@@ -4,6 +4,7 @@ import MusicPlayer from './Features/Musicplay'
 import DarkMode from './Features/Darkmode'
 import Login from './Features/Login'
 import { BrowserRouter,Routes, Route} from "react-router-dom";
+import Artist from './Features/Artist'
 
 function App() {
   return (
@@ -13,10 +14,13 @@ function App() {
         <Route path="/dashboard" element={
           <div>
             <DarkMode />
-            <div className='flex flex-col my- mx-10 lg:m-8 gap-7 lg:flex-row lg:gap-12 '>
+           <div className='flex justify-around'>
+            <Artist />
+           {/* <div className='flex flex-col '>
               <SearchBar />
               <MusicPlayer />
-            </div>
+            </div> */}
+           </div>
           </div>
         } />
       </Routes>

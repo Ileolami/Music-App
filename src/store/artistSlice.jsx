@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  loginDetails: [],
+  artistDetails: [],
 }
 
-export const loginSlice = createSlice({
+export const artistSlice = createSlice({
   name: 'Login Slice',
   initialState,
   reducers: {
-    loginUpdate: (state = initialState, action) => {
+    artistUpdate: (state = initialState, action) => {
    console.log(action);
    return{
         ...state,
-        loginDetails: action.payload.data
+        artistDetails: action.payload.data
     
    }
   },
@@ -20,6 +20,6 @@ export const loginSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { loginUpdate } = loginSlice.actions
+export const { artistUpdate } = artistSlice.actions
 
-export default loginSlice.reducer
+export default artistSlice.reducer

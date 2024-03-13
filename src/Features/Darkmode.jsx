@@ -20,7 +20,7 @@ const DarkMode = () => {
     }, [darkMode]);
 
     return (
-        <div className='flex justify-end mr-6 mt-2'>
+        <header className='flex justify-end mr-2 mt-2'>
             <button
                 type="button"
                 onClick={toggleDarkMode}
@@ -28,7 +28,7 @@ const DarkMode = () => {
             >
                 {darkMode ? <FaSun /> : <FaMoon />}
             </button>
-        </div>
+        </header>
     );
 }
 

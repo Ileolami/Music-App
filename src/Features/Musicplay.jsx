@@ -129,7 +129,7 @@ const MusicPlayer = () => {
                     </div>
                 </div>
                 <audio ref={audioRef} src={songs[currentSong].audio} onTimeUpdate={handleTimeUpdate}></audio>
-                <div className="flex justify-center gap-10 my-3">
+                <div className="flex justify-center gap-10 -my-2">
                     <Button
                         icon={<FaBackward />}
                         onClick={backward}

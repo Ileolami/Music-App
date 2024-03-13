@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import LoginReducer from './loginSlice'
+import artistReducer from './artistSlice'
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { combineReducers } from '@reduxjs/toolkit';
@@ -18,7 +19,8 @@ const persistConfig = {
 }
 const reducer = combineReducers(
   {
-    login: LoginReducer
+    login: LoginReducer,
+    artist: artistReducer,
   }
 
 )
