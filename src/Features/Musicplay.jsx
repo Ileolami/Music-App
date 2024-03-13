@@ -5,8 +5,21 @@ import Life from "../assets/Adekunle-Gold-–-The-Life-I-Chose pic.webp";
 import SongTwo from "../assets/Adekunle_Gold_-_The_Life_I_Chose.mp3";
 import Button from "../components/Button";
 import { FaPlay, FaPause, FaForward, FaBackward } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const MusicPlayer = () => {
+
+    const navigate = useNavigate();
+    const loginDetails = useSelector(state => state.login.loginDetails); 
+
+    useEffect(() => {
+        if (!loginDetails.access_token) { 
+            navigate('/login');
+        }
+    }, [loginDetails, navigate]);
+
+
     //to be implemented
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
