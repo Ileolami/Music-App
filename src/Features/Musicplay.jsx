@@ -19,7 +19,7 @@ const MusicPlayer = () => {
         }
     }, [loginDetails, navigate]);
 
-
+    
     //to be implemented
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
@@ -115,7 +115,7 @@ const MusicPlayer = () => {
         <div className="flex justify-center items-center">
             <div>
                 <div className="">
-                    <img src={songs[currentSong].image} alt={songs[currentSong].title} className={`lg:h-96 lg:w-96 rounded-full ${isPlaying ? 'animate-spin-slow' : ''}`} />
+                    <img src={songs[currentSong].image} alt={songs[currentSong].title} className={`lg:h-80 lg:w-80 rounded-full ${isPlaying ? 'animate-spin-slow' : ''}`} />
                 </div>
                 <div className="text-center my-3">
                     <h2 className={`text-xl font-bold text-pink-900 ${isPlaying ? 'animate-bounce' : ''}` }>{songs[currentSong].title}</h2>

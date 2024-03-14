@@ -8,15 +8,14 @@ export const artistSlice = createSlice({
   name: 'Login Slice',
   initialState,
   reducers: {
-    artistUpdate: (state = initialState, action) => {
-   console.log(action);
-   return{
+    artistUpdate: (state=initialState, action) => {
+      console.log(action);
+      return {
         ...state,
-        artistDetails: action.payload.data
-    
-   }
-  },
+        artistDetails: action.payload.artists
+      }
     },
+  },
 })
 
 // Action creators are generated for each case reducer function

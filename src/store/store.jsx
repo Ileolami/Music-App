@@ -21,6 +21,7 @@ const reducer = combineReducers(
   {
     login: LoginReducer,
     artist: artistReducer,
+    
   }
 
 )

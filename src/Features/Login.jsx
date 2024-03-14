@@ -23,6 +23,7 @@ const Login = () => {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
         })
+        console.log(res)
         dispatch(loginUpdate(res));
         navigate("/dashboard");
         // console.log(res);

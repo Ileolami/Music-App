@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  loginDetails: [],
+  loginDetails: {},
+  isLogin : false,
 }
 
 export const loginSlice = createSlice({
@@ -12,6 +13,7 @@ export const loginSlice = createSlice({
    console.log(action);
    return{
         ...state,
+        isLogin : true,
         loginDetails: action.payload.data
     
    }
