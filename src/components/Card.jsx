@@ -9,10 +9,10 @@ const navigate = useNavigate();
     }
     return (  
         <div className='flex items-center'>
-          <div className='card' onClick={handleClick}>
+          <div className='card md:w-40 md:h-46 p-4' onClick={handleClick}>
             <section>
           <div className='card_image'>
-                <img src={artistDetails?.images[1].url} alt="artist" className="w-40 h-40 rounded-full " />
+                <img src={artistDetails?.images[1].url} alt="artist" className="md:h-20 md:w-20 lg:w-40 lg:h-40 rounded-full " />
             </div>
             </section>
                 <FaPlay className='start_icon'/>
