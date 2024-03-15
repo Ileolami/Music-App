@@ -5,7 +5,7 @@ import Life from "../assets/Adekunle-Gold-–-The-Life-I-Chose pic.webp";
 import SongTwo from "../assets/Adekunle_Gold_-_The_Life_I_Chose.mp3";
 import Button from "../components/Button";
 import { FaPlay, FaPause, FaForward, FaBackward } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const MusicPlayer = () => {
@@ -19,6 +19,8 @@ const MusicPlayer = () => {
         }
     }, [loginDetails, navigate]);
 
+    const globalState = useSelector((state) => state?.song?.selectedSong)
+    const dispatch = useDispatch();
 
     //to be implemented
     const [isPlaying, setIsPlaying] = useState(false);
@@ -115,11 +117,11 @@ const MusicPlayer = () => {
         <div className="flex justify-center items-center ">
             <div>
                 <div className="">
-                    <img src={songs[currentSong].image} alt={songs[currentSong].title} className={`md:h-40 md:w-40 lg:h-80 lg:w-80 rounded-full ${isPlaying ? 'animate-spin-slow' : ''}`} />
+                    <img src={globalState?.album?.images[0]?.url}  className={`md:h-40 md:w-40 lg:h-80 lg:w-80 rounded-full ${isPlaying ? 'animate-spin-slow' : ''}`} />
                 </div>
                 <div className="text-center my-3">
-                    <h2 className={`text-xl font-bold text-pink-900 ${isPlaying ? 'animate-bounce' : ''}` }>{songs[currentSong].title}</h2>
-                    <p className="text-sm text-rose-900">{songs[currentSong].artist}</p>
+                    <h2 className={`text-xl font-bold text-pink-900 ${isPlaying ? 'animate-bounce' : ''}` }>{globalState?.title}</h2>
+                    <p className="text-sm text-rose-900">{globalState?.name}</p>
                 </div>
                 <div>
                     <input type="range" className="w-full" value={currentTime} onChange={handleSeek} max={audioRef.current ? audioRef.current.duration : 0} />
@@ -128,7 +130,7 @@ const MusicPlayer = () => {
                     <p className="text-sm flex justify-end text-gray-400">{formatDuration(duration - currentTime)}</p>
                     </div>
                 </div>
-                <audio ref={audioRef} src={songs[currentSong].audio} onTimeUpdate={handleTimeUpdate}></audio>
+                <audio ref={audioRef} src={globalState?.preview_url} onTimeUpdate={handleTimeUpdate}></audio>
                 <div className="flex justify-center gap-10 -my-2">
                     <Button
                         icon={<FaBackward />}
