@@ -32,12 +32,14 @@ const MusicPlayer = () => {
    
     // function to play the next song and play the song itself without clicking on the play button
     const forward = useCallback(() => {
-        setCurrentSong((currentSong) => (currentSong + 1) % globalState?.song);
+        setCurrentSong((currentSong) => (currentSong + 1) % (globalState?.song.length || 1));
         setTimeout(() => {
             audioRef.current.play();
             setIsPlaying(true);
         }, 0);
     }, [globalState?.song]);
+    
+ 
     
     //function to get the duration of the song 
     useEffect(() => {
@@ -79,12 +81,12 @@ const MusicPlayer = () => {
 
     //function to play the previous song 
     const backward = useCallback(() => {
-        setCurrentSong((currentSong) => (currentSong - 1 + globalState?.length?.tracks) % globalState?.song);
+        setCurrentSong((currentSong) => (currentSong - 1 + (globalState?.song.length || 1)) % (globalState?.song.length || 1));
         setTimeout(() => {
             audioRef.current.play();
             setIsPlaying(true);
         }, 0);
-    }, [globalState?.song, setCurrentSong, globalState?.length?.tracks]);
+    }, [globalState?.song]);
 
     //function to get the current time of the song
     const handleTimeUpdate = () => {
