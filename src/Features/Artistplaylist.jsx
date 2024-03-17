@@ -1,7 +1,7 @@
 import {useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { FaMarker } from "react-icons/fa";
+import { FaCheckCircle } from 'react-icons/fa';
 import SongList from "./Songlist";
 
 const ArtistPlayList = () => {
@@ -49,7 +49,7 @@ const ArtistPlayList = () => {
             {selectedArtist?.name}
             <div className="artist_follower">
               <p className="verified">
-                <FaMarker sx={{ fill:"green" }} /> verified artist
+                <FaCheckCircle /> verified artist
               </p>
               {selectedArtist?.followers?.total.toLocaleString()}
             </div>

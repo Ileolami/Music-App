@@ -8,18 +8,19 @@ export const selectedSongSlice = createSlice({
   name: 'Selected Song Slice',
   initialState,
   reducers: {
-    loginUpdate: (state = initialState, action) => {
+    songUpdate: (state = initialState, action) => {
    console.log(action);
    return{
         ...state,
-        selectedSong: action.payload
-    
+        selectedSong: action.payload.data
+        
    }
   },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { selctedUpdate } = selectedSongSlice.actions
+export const { songUpdate } = selectedSongSlice.actions
 
 export default selectedSongSlice.reducer
+

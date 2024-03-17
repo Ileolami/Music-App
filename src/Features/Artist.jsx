@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { artistUpdate } from '../store/artistSlice';
 import Card from '../components/Card';
-
+import { useNavigate } from 'react-router-dom';
+import { loginCancel } from '../store/loginSlice';
 
 const IDS = [
     '3wcj11K77LjEY1PkEazffa',
@@ -20,25 +21,31 @@ const IDS = [
     '2YZyLoL8N0Wb9xBt1NhZWg'
 ]
 const Artist= () => {
-    const ARTIST_URL = `https://api.spotify.com/v1/artists?ids=${IDS}`;
+    const navigate = useNavigate();
+    const ARTIST_API = `https://api.spotify.com/v1/artists?ids=${IDS}`;
     const globalLoginToken = useSelector((state)=>state.login.loginDetails?.access_token);
     const [artistDetails, setArtistDetails] = useState([]);
     const dispatch = useDispatch();
 
-    const getArtist = async () => {
-        let res = await axios.get(ARTIST_URL, {
+    const getArtist = async ()=>{
+        try {
+          const res = await axios.get(ARTIST_API, {
             headers: {
-                'Authorization' : `Bearer ${globalLoginToken}`
+              'Authorization': `Bearer ${globalLoginToken}`
             }
-        })
-        console.log(res);
-        dispatch(artistUpdate(res.data));
-        setArtistDetails(res.data.artists);
-    }
-
-    useEffect(() => {
+          });
+          dispatch(artistUpdate(res.data));
+          setArtistDetails(res.data.artists);
+        } catch (err) {
+          dispatch(loginCancel());
+          navigate('/login');
+          return ;
+        }
+      }
+    
+      useEffect(()=>{
         getArtist();
-    }, [])
+      },[])
 
 
     return ( 

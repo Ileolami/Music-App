@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import TweTwe from "../assets/Kizz-Daniel-–-Twe-Twe-Remix-Ft.-Davido.webp";
-import SongOne from "../assets/Kizz_Daniel_Ft_Davido_-_Twe_Twe_Remix_.mp3";
-import Life from "../assets/Adekunle-Gold-–-The-Life-I-Chose pic.webp";
-import SongTwo from "../assets/Adekunle_Gold_-_The_Life_I_Chose.mp3";
+// import TweTwe from "../assets/Kizz-Daniel-–-Twe-Twe-Remix-Ft.-Davido.webp";
+// import SongOne from "../assets/Kizz_Daniel_Ft_Davido_-_Twe_Twe_Remix_.mp3";
+// import Life from "../assets/Adekunle-Gold-–-The-Life-I-Chose pic.webp";
+// import SongTwo from "../assets/Adekunle_Gold_-_The_Life_I_Chose.mp3";
 import Button from "../components/Button";
 import { FaPlay, FaPause, FaForward, FaBackward } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
@@ -29,30 +29,15 @@ const MusicPlayer = () => {
     const [currentSong, setCurrentSong] = useState(0);
     const audioRef = useRef(null);
 
-    // an array of objects containing the song details
-    const songs = [
-        {
-            artist: "Kizz Daniel ft Davido",
-            title: "TweTwe Remix",
-            audio: SongOne,
-            image: TweTwe,
-        },
-        {
-            artist: "Adekunle Gold",
-            title: "The Life I Chose",
-            audio: SongTwo,
-            image: Life,
-        }
-    ]
-
+   
     // function to play the next song and play the song itself without clicking on the play button
     const forward = useCallback(() => {
-        setCurrentSong((currentSong) => (currentSong + 1) % songs.length);
+        setCurrentSong((currentSong) => (currentSong + 1) % globalState?.song);
         setTimeout(() => {
             audioRef.current.play();
             setIsPlaying(true);
         }, 0);
-    }, [songs.length]);
+    }, [globalState?.song]);
     
     //function to get the duration of the song 
     useEffect(() => {
@@ -94,12 +79,12 @@ const MusicPlayer = () => {
 
     //function to play the previous song 
     const backward = useCallback(() => {
-        setCurrentSong((currentSong) => (currentSong - 1 + songs.length) % songs.length);
+        setCurrentSong((currentSong) => (currentSong - 1 + globalState?.length?.tracks) % globalState?.song);
         setTimeout(() => {
             audioRef.current.play();
             setIsPlaying(true);
         }, 0);
-    }, [songs.length, setCurrentSong]);
+    }, [globalState?.song, setCurrentSong, globalState?.length?.tracks]);
 
     //function to get the current time of the song
     const handleTimeUpdate = () => {
@@ -120,8 +105,7 @@ const MusicPlayer = () => {
                     <img src={globalState?.album?.images[0]?.url}  className={`md:h-40 md:w-40 lg:h-80 lg:w-80 rounded-full ${isPlaying ? 'animate-spin-slow' : ''}`} />
                 </div>
                 <div className="text-center my-3">
-                    <h2 className={`text-xl font-bold text-pink-900 ${isPlaying ? 'animate-bounce' : ''}` }>{globalState?.title}</h2>
-                    <p className="text-sm text-rose-900">{globalState?.name}</p>
+                    <p className={`text-xl font-bold text-pink-900 ${isPlaying ? 'animate-bounce' : ''}` }>{globalState?.name}</p>
                 </div>
                 <div>
                     <input type="range" className="w-full" value={currentTime} onChange={handleSeek} max={audioRef.current ? audioRef.current.duration : 0} />
