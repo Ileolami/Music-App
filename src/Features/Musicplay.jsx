@@ -19,7 +19,7 @@ const MusicPlayer = () => {
         }
     }, [loginDetails, navigate]);
 
-    const globalState = useSelector((state) => state?.song?.selectedSong)
+    const globalState = useSelector((state) => state?.song?.selectedSong);
     const dispatch = useDispatch();
 
     //to be implemented
