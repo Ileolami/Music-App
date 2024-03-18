@@ -75,12 +75,8 @@ const MusicPlayer = () => {
 
     //function to play the previous song 
     const backward = useCallback(() => {
-        setCurrentSong((currentSong) => (currentSong - 1 + (globalState?.song.length || 1)) % (globalState?.song.length || 1));
-        setTimeout(() => {
-            audioRef.current.play();
-            setIsPlaying(true);
-        }, 0);
-    }, [globalState?.song]);
+        setCurrentSong((currentSong) => (currentSong - 1 + (globalState?.tracks?.length  || 1)) % (globalState?.tracks?.length  || 1));
+    }, [globalState?.tracks]);
 
     //function to get the current time of the song
     const handleTimeUpdate = () => {
