@@ -20,12 +20,12 @@ const MusicPlayer = () => {
    
     // function to play the next song and play the song itself without clicking on the play button
     const forward = useCallback(() => {
-        setCurrentSong((currentSong) => (currentSong + 1) % (globalState?.tracks.length || 1));
+        setCurrentSong((currentSong) => (currentSong + 1) % (globalState.tracks || 1));
         setTimeout(() => {
-            audioRef.current.play();
+            // audioRef.current.play();
             setIsPlaying(true);
         }, 0);
-    }, [globalState?.tracks]);
+    }, [globalState.tracks]);
     
     useEffect(() => {
         if (audioRef.current) {
@@ -54,7 +54,7 @@ const MusicPlayer = () => {
             audio.removeEventListener("loadedmetadata", setAudioData);
             audio.removeEventListener("ended", handleEnded);
         };
-    }, [forward]);
+    }, [globalState?.tracks, currentSong, forward]);
 
     //function to format the duration of the song
     const formatDuration = (duration) => {
