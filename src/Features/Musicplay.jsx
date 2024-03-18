@@ -1,23 +1,11 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-// import TweTwe from "../assets/Kizz-Daniel-–-Twe-Twe-Remix-Ft.-Davido.webp";
-// import SongOne from "../assets/Kizz_Daniel_Ft_Davido_-_Twe_Twe_Remix_.mp3";
-// import Life from "../assets/Adekunle-Gold-–-The-Life-I-Chose pic.webp";
-// import SongTwo from "../assets/Adekunle_Gold_-_The_Life_I_Chose.mp3";
 import Button from "../components/Button";
 import { FaPlay, FaPause, FaForward, FaBackward } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+
 
 const MusicPlayer = () => {
 
-    const navigate = useNavigate();
-    const loginDetails = useSelector(state => state.login.loginDetails); 
-
-    useEffect(() => {
-        if (!loginDetails.access_token) { 
-            navigate('/login');
-        }
-    }, [loginDetails, navigate]);
 
     const globalState = useSelector((state) => state?.song?.selectedSong);
     const dispatch = useDispatch();
@@ -32,14 +20,20 @@ const MusicPlayer = () => {
    
     // function to play the next song and play the song itself without clicking on the play button
     const forward = useCallback(() => {
-        setCurrentSong((currentSong) => (currentSong + 1) % (globalState?.song.length || 1));
+        setCurrentSong((currentSong) => (currentSong + 1) % (globalState?.tracks?.length || 1));
         setTimeout(() => {
             audioRef.current.play();
             setIsPlaying(true);
         }, 0);
-    }, [globalState?.song]);
+    }, [globalState?.tracks]);
     
- 
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.src = globalState[currentSong]?.preview_url;
+            audioRef.current.play();
+            setIsPlaying(true);
+        }
+    }, [currentSong, globalState]);
     
     //function to get the duration of the song 
     useEffect(() => {
@@ -116,7 +110,7 @@ const MusicPlayer = () => {
                     <p className="text-sm flex justify-end text-gray-400">{formatDuration(duration - currentTime)}</p>
                     </div>
                 </div>
-                <audio ref={audioRef} src={globalState?.preview_url} onTimeUpdate={handleTimeUpdate}></audio>
+                <audio ref={audioRef} onTimeUpdate={handleTimeUpdate}></audio>
                 <div className="flex justify-center gap-10 -my-2">
                     <Button
                         icon={<FaBackward />}

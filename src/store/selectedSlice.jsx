@@ -12,7 +12,7 @@ export const selectedSongSlice = createSlice({
    console.log(action);
    return{
         ...state,
-        selectedSong: action.payload.data
+        selectedSong: action.payload
         
    }
   },

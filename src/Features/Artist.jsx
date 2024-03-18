@@ -49,9 +49,9 @@ const Artist= () => {
 
 
     return ( 
-        <div className='hidden md:block lg:block'>
+        <div className='block'>
             <h1 className="text-2xl font-serif text-pink-900 text-center">Artists</h1>
-          <div className="grid grid-cols-3 gap-3 md:gap-1">
+          <div className="grid grid-cols-4 gap-3 md:gap-1 lg:gap-5">
           {
           artistDetails?.map((artist, ind)=> <Card key={ind} artistDetails={artist} url={`/artist?id=${artist.id}`} /> )
         }

@@ -24,10 +24,6 @@ function App() {
                 <DarkMode />
                 <div className='flex justify-around'>
                   <Artist />
-                  <div className='flex flex-col gap-1'>
-                    <SearchBar />
-                    <MusicPlayer />
-                  </div>
                 </div>
               </div>
             ) : (
