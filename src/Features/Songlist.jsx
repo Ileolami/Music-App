@@ -16,14 +16,14 @@ const SongList = ({ artistAlbum, index, hide = false }) => {
     const seconds = ((miliSecond%60000) / 1000).toFixed(0);
     return `${minute}:${seconds}`;
   }
-  
+
   return (
     <React.Fragment>
       <div className="song_track" onClick={() => handlePlay(artistAlbum)}>
         <div className="track_name">
           {index + 1}
           <div className="song_image">
-            <img alt="song preview" src={artistAlbum?.album?.images[0].url} />
+            <img alt="song preview" src={artistAlbum.album.images[0].url} />
           </div>
           <p>{artistAlbum?.name} </p>
         </div>

@@ -20,7 +20,7 @@ const MusicPlayer = () => {
    
     // function to play the next song and play the song itself without clicking on the play button
     const forward = useCallback(() => {
-        setCurrentSong((currentSong) => (currentSong + 1) % (globalState?.tracks?.length || 1));
+        setCurrentSong((currentSong) => (currentSong + 1) % (globalState?.tracks.length || 1));
         setTimeout(() => {
             audioRef.current.play();
             setIsPlaying(true);
@@ -29,7 +29,7 @@ const MusicPlayer = () => {
     
     useEffect(() => {
         if (audioRef.current) {
-            audioRef.current.src = globalState[currentSong]?.preview_url;
+            audioRef.current.src = globalState?.preview_url;
             audioRef.current.play();
             setIsPlaying(true);
         }
