@@ -39,12 +39,12 @@ function App() {
                 <DarkMode />
                 <div className='grid place-content-center'>
                   <div className='flex flex-col gap-1'>
-                   {/* <div className='flex justify-center items-center'>
+                   <div className='flex justify-center items-center'>
                     <SearchBar />
-                   </div> */}
-                  <div className='relative'>
+                   </div>
+                 
                     <ArtistPlayList />
-                  </div>
+                 
                   <MusicPlayer/>
                   </div>
                 </div>
