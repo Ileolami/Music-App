@@ -9,7 +9,7 @@ const SearchBar = () => {
         
         type="text"
         placeholder="Search..."
-        className="bg-slate-900 h-14 w-80 md:w-full lg:w-96 px-5 pr-16 rounded-3xl text-slate-200 text-base focus:outline-none"
+        className="bg-slate-900 h-12 w-64 md:w-full lg:w-96 px-5 pr-16 rounded-3xl text-slate-200 text-base focus:outline-none"
       />
     </div>
   );

@@ -19,7 +19,7 @@ const SongList = ({ artistAlbum, index, hide = false }) => {
 
   return (
     <React.Fragment>
-      <div className="song_track" onClick={() => handlePlay(artistAlbum)}>
+      <div className=" song_track" onClick={() => handlePlay(artistAlbum)}>
         <div className="track_name">
           {index + 1}
           <div className="song_image">

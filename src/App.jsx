@@ -36,16 +36,18 @@ function App() {
           element={
             globalState ? (
               <div>
-                <DarkMode />
+                <header className='flex justify-between items-center px-5 py-3 fixed top-0 right-0 left-0'>
+                  <SearchBar />
+                  <DarkMode/>
+                </header>
                 <div className='grid place-content-center'>
                   <div className='flex flex-col gap-1'>
-                   <div className='flex justify-center items-center'>
-                    <SearchBar />
-                   </div>
-                 
+                    <main>
                     <ArtistPlayList />
-                 
+                    </main>
+                  <footer className='Footer'>
                   <MusicPlayer/>
+                  </footer>
                   </div>
                 </div>
               </div>
