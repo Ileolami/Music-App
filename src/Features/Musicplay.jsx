@@ -91,11 +91,8 @@ const MusicPlayer = () => {
     };
 
     return (
-        <div className="flex justify-center items-center ">
+        <div className=" ">
             <div>
-                <div className="">
-                    <img src={globalState?.album?.images[0]?.url}  className={`md:h-40 md:w-40 lg:h-80 lg:w-80 rounded-full ${isPlaying ? 'animate-spin-slow' : ''}`} />
-                </div>
                 <div className="text-center my-3">
                     <p className={`text-xl font-bold text-pink-900 ${isPlaying ? 'animate-bounce' : ''}` }>{globalState?.name}</p>
                 </div>

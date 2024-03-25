@@ -22,7 +22,7 @@ function App() {
             globalState ? (
               <div>
                 <DarkMode />
-                <div className='flex justify-around'>
+                <div className='flex justify-center'> {/* Add 'justify-center' class */}
                   <Artist />
                 </div>
               </div>
@@ -37,11 +37,15 @@ function App() {
             globalState ? (
               <div>
                 <DarkMode />
-                <div className='flex justify-around'>
-                  <ArtistPlayList />
+                <div className='grid place-content-center'>
                   <div className='flex flex-col gap-1'>
+                   {/* <div className='flex justify-center items-center'>
                     <SearchBar />
-                    <MusicPlayer />
+                   </div> */}
+                  <div className='relative'>
+                    <ArtistPlayList />
+                  </div>
+                  <MusicPlayer/>
                   </div>
                 </div>
               </div>

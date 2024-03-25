@@ -2,8 +2,11 @@
   margin: 0;
   padding: 0;
 }
+body {
+  background: linear-gradient(to top, #D02090, #4B0082);
+}
 body.dark {
-  background-color: black;
+  background: black;
   color: white;
 }
 .card{
@@ -46,9 +49,9 @@ body.dark {
     fill: green;
     font-size: 45px;
   }
-
+  
 .card:hover{
-  background-color: #1d1c1cab;
+  background-color: #1d1c1d49;
 }
 .card:hover .start_icon{
   visibility: visible;
@@ -93,7 +96,7 @@ body.dark {
 .song_track {
   height: 80px;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 4fr;
   border-radius: 10px;
   cursor: pointer;
   box-sizing: content-box;
@@ -121,11 +124,11 @@ body.dark {
   visibility: hidden;
   font-size: 20px;
   margin-left: 20px;
-  fill: rgb(0, 101, 8);
+  fill: rgba(0, 69, 101, 0.966);
 }
 
 .song_track:hover {
-  background-color: #353434;
+  background-color: #36163681;
 }
 
 .song_track:hover .play_duration {
