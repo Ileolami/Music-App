@@ -39,15 +39,10 @@ const ArtistPlayList = () => {
 
     }, [])
 
-    const style = {
-        backgroundImage: `url(${selectedArtist?.images[0]?.url})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-    }
+    
 
     return ( 
-        <div className="selectedArtist_main_box "style={style} >
+        <div className="selectedArtist_main_box " >
         <section className="music_player" >
           <div className="artist_name">
             {selectedArtist?.name}
