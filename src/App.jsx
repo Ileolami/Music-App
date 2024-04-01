@@ -35,8 +35,8 @@ function App() {
           path="/artist"
           element={
             globalState ? (
-              <div>
-                <header className='flex justify-between items-center px-5 py-3 fixed top-0 right-0 left-0'>
+              <div className=''>
+                <header className='flex justify-between items-center px-5 py-3 top-0 right-0 left-0'>
                   <SearchBar />
                   <DarkMode/>
                 </header>
@@ -45,7 +45,7 @@ function App() {
                     <main>
                     <ArtistPlayList />
                     </main>
-                  <footer className='Footer'>
+                  <footer className='fixed top-3/4 left-0 right-0 bottom-0 bg-slate-800'>
                   <MusicPlayer/>
                   </footer>
                   </div>
