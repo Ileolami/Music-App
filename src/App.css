@@ -102,6 +102,7 @@ body.dark {
   cursor: pointer;
   box-sizing: content-box;
   padding-left: 10px;
+  padding-bottom: 10px;
 }
 
 .song_track .track_name {
