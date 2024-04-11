@@ -45,7 +45,7 @@ const ArtistPlayList = () => {
         <div className="selectedArtist_main_box " >
         <section className="music_player" >
           <div className="artist_name">
-            {selectedArtist?.name}
+           <p className="p-typewriter"> {selectedArtist?.name}</p>
             <div className="artist_follower">
               <p className="verified">
                 <FaCheckCircle /> verified artist

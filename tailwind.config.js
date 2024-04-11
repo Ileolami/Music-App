@@ -8,9 +8,8 @@ export default {
     extend: {},
     animation: {
       'spin-slow': 'spin 4s linear infinite',
-      pulse: 'pulse 1s ease-in-out infinite',
+      pulse: 'pulse 5s ease-in-out infinite',
       'bounce': 'bounce 1s infinite',
-      
      }
   },
   plugins: [],

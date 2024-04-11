@@ -136,8 +136,17 @@ body.dark {
 .song_track:hover .play_duration {
   visibility: visible;
 }
+@keyframes typewriter {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
 
-
+.p-typewriter {
+  border-right: 2px solid;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typewriter 3s steps(60);
+} 
 
 @media (min-width: 368px) and (max-width: 1024px) {
   .selectedArtist_main_box {
