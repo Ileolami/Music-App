@@ -11,6 +11,7 @@ Please note that the songs in this app are limited to 30 seconds.
 
 - Artist Selection: Users can choose from a list of 12 artists to listen to.
 - Song Recommendations: The app provides a collection of songs by each artist, based on their popularity in Nigeria.
+-Artist Name: Burna Boy, Tech 9ne, Tomisin, Kendrick Lamar, Tobe Ngwe, Jacob Banks etc (base on my favorite artists)
 
 ## Usage
 
