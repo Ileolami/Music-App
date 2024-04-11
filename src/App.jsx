@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Artist from './Features/Artist'
 import { useSelector } from 'react-redux'
 import ArtistPlayList from './Features/Artistplaylist'
+import Time from './components/Time'
 
 function App() {
   const globalState = useSelector((state) => state.login.isLogin);
@@ -38,6 +39,7 @@ function App() {
               <div className=''>
                 <header className='flex justify-between items-center px-5 py-3 top-0 right-0 left-0'>
                   <SearchBar />
+                  <Time />
                   <DarkMode/>
                 </header>
                 <div className='grid place-content-center'>

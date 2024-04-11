@@ -103,7 +103,7 @@ const MusicPlayer = () => {
                     <p className="text-sm flex justify-end text-gray-400">{formatDuration(duration - currentTime)}</p>
                     </div>
                 </div>
-                <audio ref={audioRef} onTimeUpdate={handleTimeUpdate}></audio>
+                <audio ref={audioRef} onTimeUpdate={handleTimeUpdate} className=" w-11"></audio>
                 <div className="flex justify-center gap-6 my-2 lg:-my-1">
                     <Button
                         icon={<FaBackward />}

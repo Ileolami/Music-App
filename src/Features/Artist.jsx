@@ -5,6 +5,7 @@ import { artistUpdate } from '../store/artistSlice';
 import Card from '../components/Card';
 import { useNavigate } from 'react-router-dom';
 import { loginCancel } from '../store/loginSlice';
+import Time from '../components/Time'
 
 const IDS = [
     '3wcj11K77LjEY1PkEazffa',
@@ -47,9 +48,9 @@ const Artist= () => {
         getArtist();
       },[])
 
-      
     return ( 
         <div className='block'>
+          <header><Time /></header>
             <h1 className="text-2xl font-serif text-pink-900 text-center">Artists</h1>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-2 lg:gap-5">
           {
