@@ -6,11 +6,12 @@ import { FaPlay as PlayArrow } from 'react-icons/fa';
 const SongList = ({ artistAlbum, index, hide = false }) => {
   const dispatch = useDispatch();
 
+
+
   const handlePlay = (album) => {
     // Dispatch action to update selected song
     dispatch(songUpdate(album));
   }
-
   const secondDuration = (miliSecond)=>{
     const minute = Math.floor(miliSecond/60000);
     const seconds = ((miliSecond%60000) / 1000).toFixed(0);

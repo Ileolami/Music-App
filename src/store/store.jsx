@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import LoginReducer from './loginSlice'
 import artistReducer from './artistSlice'
 import selectedReducer from './selectedSlice';
+import previewurlReducer from './previewUrlSlice';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { combineReducers } from '@reduxjs/toolkit';
@@ -22,8 +23,8 @@ const reducer = combineReducers(
   {
     login: LoginReducer,
     artist: artistReducer,
-    song: selectedReducer
-    
+    song: selectedReducer,
+    previewurl: previewurlReducer
   }
 
 )

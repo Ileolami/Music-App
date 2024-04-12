@@ -12,17 +12,19 @@ const ArtistPlayList = () => {
     const globalArtist = useSelector((state) => state.artist?.artistDetails)
     
     const artistTopTrack = () => {
-        const URL = `https://api.spotify.com/v1/artists/${ID}/top-tracks?market=NG`;
-        axios.get(URL, {
-            headers: {
-                "Authorization" : `Bearer ${AccessToken}`
-            }
-        }).then((res) => {
-            console.log(res);
-            setArtistTrack(res.data?.tracks);
-        }).catch((err) => {
-            console.log(err)
-        })
+      const URL = `https://api.spotify.com/v1/artists/${ID}/top-tracks?market=NG`;
+      axios.get(URL, {
+        headers: {
+          "Authorization" : `Bearer ${AccessToken}`
+        }
+      }).then((res) => {
+        console.log(res.data);
+        const previewUrls = res.data?.tracks.map(track => track.preview_url);
+        console.log(previewUrls);
+        setArtistTrack(res.data?.tracks);
+      }).catch((err) => {
+        console.log(err)
+      })
 
     }
     useEffect(() => {
@@ -39,7 +41,7 @@ const ArtistPlayList = () => {
 
     }, [])
 
-    
+  
 
     return ( 
         <div className="selectedArtist_main_box " >

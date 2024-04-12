@@ -4,13 +4,15 @@ import { FaPlay, FaPause, FaForward, FaBackward } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 
 
-const MusicPlayer = () => {
-
-
+    const MusicPlayer = () => {
     const globalState = useSelector((state) => state?.song?.selectedSong);
-    const dispatch = useDispatch();
+    const tracks = useSelector((state) => state?.artist?.artistDetails?.tracks);
+    console.log(tracks)
+    // const previewUrl = useSelector((state) => state?.previewurl?.previewUrls);
+    
 
     //to be implemented
+
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -20,7 +22,7 @@ const MusicPlayer = () => {
    
     // function to play the next song and play the song itself without clicking on the play button
     const forward = useCallback(() => {
-        setCurrentSong((currentSong) => (currentSong + 1) % (globalState.tracks || 1));
+        setCurrentSong((currentSong) => (currentSong + 1) % (globalState?.tracks?.preview_url || 1));
         setTimeout(() => {
             // audioRef.current.play();
             setIsPlaying(true);
@@ -34,6 +36,8 @@ const MusicPlayer = () => {
             setIsPlaying(true);
         }
     }, [currentSong, globalState]);
+
+    
     
     //function to get the duration of the song 
     useEffect(() => {
